@@ -1,0 +1,37 @@
+# Netlify Configuration for Heritage Asia
+# Handles build settings and SPA routing
+
+[build]
+  # Build command - runs Vite production build
+  command = "npm run build"
+
+  # Output directory for the built files
+  publish = "dist"
+
+# SPA Routing - redirect all routes to index.html
+# Required for Vue Router history mode to work properly
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security and caching
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets for 1 year
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache fonts
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
