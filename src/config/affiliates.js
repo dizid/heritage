@@ -1,15 +1,18 @@
 /**
- * Affiliate Program Configuration
+ * Affiliate Program Configuration (via Travelpayouts)
  *
- * Replace YOUR_AFFILIATE_ID with your actual Trip.com partner ID
- * after signing up at https://www.trip.com/partners
+ * Get your credentials from your Travelpayouts dashboard:
+ * 1. Log in to Travelpayouts
+ * 2. Go to Profile → API Token & Marker ID
+ * 3. Replace the values below
  */
 export const affiliateConfig = {
-  tripcom: {
+  travelpayouts: {
     enabled: true,
-    affiliateId: 'YOUR_AFFILIATE_ID',
-    baseUrl: 'https://www.trip.com',
-    trackingParam: 'Allianceid',
-    subTrackingParam: 'sid',
+    marker: 'YOUR_MARKER_ID',      // Your Travelpayouts Marker ID
+    // Travelpayouts redirect URL for affiliate tracking
+    redirectBase: 'https://tp.media/r',
+    // Trip.com program ID in Travelpayouts (hotels)
+    tripcomProgramId: '4114',
   }
 }
