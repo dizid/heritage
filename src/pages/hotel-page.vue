@@ -100,6 +100,9 @@
 
           <!-- Sidebar -->
           <div class="lg:col-span-1">
+            <!-- Booking CTA -->
+            <BookingCTA :hotel="hotel" class="mb-6" />
+
             <!-- Notable Guests Card -->
             <div class="bg-secondary rounded-xl p-6 mb-6">
               <h3 class="text-lg font-heading font-semibold text-white mb-4 flex items-center gap-2">
@@ -203,6 +206,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import content from '@/data/content.json'
 import ArticleCard from '@/components/ui/article-card.vue'
+import BookingCTA from '@/components/ui/booking-cta.vue'
 
 // Get route params
 const route = useRoute()
